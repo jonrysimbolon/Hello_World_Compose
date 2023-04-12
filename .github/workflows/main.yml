@@ -7,39 +7,39 @@ on:
   workflow_dispatch:
 
 jobs:
-#  lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout the code
-#        uses: actions/checkout@v3
-#
-#      - name: Run Lint
-#        run: ./gradlew lintDebug
-#
-#      - name: Upload html test report
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: lint.html
-#          path: app/build/reports/lint-results-debug.html
-#
-#  unit-test:
-#    needs: [lint]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout the code
-#        uses: actions/checkout@v3
-#
-#      - name: Run tests
-#        run: ./gradlew test
-#
-#      - name: Upload test report
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: unit_test_report
-#          path: app/build/reports/tests/testDebugUnitTest/
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Run Lint
+        run: ./gradlew lintDebug
+
+      - name: Upload html test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: lint.html
+          path: app/build/reports/lint-results-debug.html
+
+  unit-test:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit_test_report
+          path: app/build/reports/tests/testDebugUnitTest/
 
   instrumentation-test:
-    #needs: [unit-test]
+    needs: [unit-test]
     runs-on: macos-latest
     steps:
       - name: Checkout the code
@@ -53,10 +53,6 @@ jobs:
             8
             11
           cache: 'gradle'
-#
-#      - name: Run gradle (no daemon)
-#        run: ./gradlew build --no-daemon
-
       - name: Run espresso tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
