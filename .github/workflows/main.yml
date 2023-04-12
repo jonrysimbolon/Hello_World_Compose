@@ -53,6 +53,7 @@ jobs:
             8
             11
           cache: 'gradle'
+      - name: Run gradle (no daemon)
         run: ./gradlew build --no-daemon
 
       - name: Run espresso tests
