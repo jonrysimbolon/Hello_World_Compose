@@ -1,1 +1,3 @@
+[![CI](https://github.com/jonrysimbolon/Hello_World_Compose/actions/workflows/main.yml/badge.svg)](https://github.com/jonrysimbolon/Hello_World_Compose/actions/workflows/main.yml)
+
 Hy this is compose project with ci/cd test...
