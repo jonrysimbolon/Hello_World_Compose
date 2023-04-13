@@ -1,5 +1,13 @@
 name: CI
 on:
+  # name: Nightly Build
+#  schedule:
+#    -cron: '00***'
+
+  # name: Build Feature Branch
+#  push:
+#    branches: 'feature/**'
+  
   push:
     branches: [ master ]
   pull_request:
