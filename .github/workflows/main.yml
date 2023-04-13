@@ -1,5 +1,6 @@
 name: CI
 on:
+
   # name: Nightly Build
 #  schedule:
 #    -cron: '00***'
@@ -7,6 +8,11 @@ on:
   # name: Build Feature Branch
 #  push:
 #    branches: 'feature/**'
+
+  # name: Assemble
+#  env:
+#    VERSION_CODE: ${{ github.run_id }}
+#  run: ./gradlew assembleDebug
   
   push:
     branches: [ master ]
